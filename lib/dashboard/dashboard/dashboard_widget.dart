@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/utility/app_bar_custom/app_bar_custom_widget.dart';
 import '/utility/side_bar_menu/side_bar_menu_widget.dart';
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'dashboard_model.dart';
 export 'dashboard_model.dart';
@@ -38,7 +37,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final chartPieChartColorsList1 = [
+    final chartPieChartColorsList = [
       const Color(0xFF8F46E9),
       const Color(0xFF6F28CB),
       const Color(0xFF2536A4),
@@ -71,7 +70,9 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                         wrapWithModel(
                           model: _model.sideBarMenuModel,
                           updateCallback: () => setState(() {}),
-                          child: const SideBarMenuWidget(),
+                          child: const SideBarMenuWidget(
+                            pageName: 'Dashboard',
+                          ),
                         ),
                         Expanded(
                           child: Padding(
@@ -122,27 +123,6 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                   ),
                                                 ),
                                               ],
-                                            ),
-                                            Expanded(
-                                              child: SizedBox(
-                                                width: double.infinity,
-                                                height:
-                                                    MediaQuery.sizeOf(context)
-                                                            .height *
-                                                        1.0,
-                                                child:
-                                                    custom_widgets.ChartWidget(
-                                                  width: double.infinity,
-                                                  height:
-                                                      MediaQuery.sizeOf(context)
-                                                              .height *
-                                                          1.0,
-                                                  month:
-                                                      FFAppConstants.monthName,
-                                                  revenue:
-                                                      FFAppConstants.Revenue,
-                                                ),
-                                              ),
                                             ),
                                           ].divide(const SizedBox(height: 20.0)),
                                         ),
@@ -199,7 +179,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                   e.toString())
                                                           .toList(),
                                                       colors:
-                                                          chartPieChartColorsList1,
+                                                          chartPieChartColorsList,
                                                       radius: [74.0],
                                                     ),
                                                     donutHoleRadius: 0.0,
@@ -369,13 +349,17 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                           8.0),
                                                               child:
                                                                   Image.network(
-                                                                'https://picsum.photos/seed/617/600',
+                                                                'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwzfHxzaG9lc3xlbnwwfHx8fDE3MDk0MzI1NzB8MA&ixlib=rb-4.0.3&q=80&w=1080',
                                                                 width: double
                                                                     .infinity,
                                                                 height: double
                                                                     .infinity,
                                                                 fit: BoxFit
                                                                     .cover,
+                                                                alignment:
+                                                                    const Alignment(
+                                                                        0.0,
+                                                                        -0.3),
                                                               ),
                                                             ),
                                                       ][index]();
@@ -427,44 +411,6 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                         .labelLarge,
                                                   ),
                                                 ),
-                                                SizedBox(
-                                                  width: 370.0,
-                                                  height: 230.0,
-                                                  child: FlutterFlowBarChart(
-                                                    barData: [
-                                                      FFBarChartData(
-                                                        yData: FFAppConstants
-                                                            .Revenue,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                      )
-                                                    ],
-                                                    xLabels: FFAppConstants
-                                                        .monthName,
-                                                    barWidth: 16.0,
-                                                    barBorderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                    groupSpace: 8.0,
-                                                    alignment: BarChartAlignment
-                                                        .spaceAround,
-                                                    chartStylingInfo:
-                                                        ChartStylingInfo(
-                                                      backgroundColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryBackground,
-                                                      showBorder: false,
-                                                    ),
-                                                    axisBounds: const AxisBounds(),
-                                                    xAxisLabelInfo:
-                                                        const AxisLabelInfo(),
-                                                    yAxisLabelInfo:
-                                                        const AxisLabelInfo(),
-                                                  ),
-                                                ),
                                               ].divide(const SizedBox(height: 10.0)),
                                             ),
                                           ),
@@ -472,7 +418,9 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                       ),
                                     ].divide(const SizedBox(width: 50.0)),
                                   ),
-                                ].divide(const SizedBox(height: 20.0)),
+                                ]
+                                    .divide(const SizedBox(height: 20.0))
+                                    .addToEnd(const SizedBox(height: 10.0)),
                               ),
                             ),
                           ),

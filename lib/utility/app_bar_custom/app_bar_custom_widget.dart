@@ -1,7 +1,8 @@
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'app_bar_custom_model.dart';
 export 'app_bar_custom_model.dart';
 
@@ -43,7 +44,7 @@ class _AppBarCustomWidgetState extends State<AppBarCustomWidget> {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.sizeOf(context).width * 1.0,
-      height: MediaQuery.sizeOf(context).height * 0.078,
+      height: MediaQuery.sizeOf(context).height * 0.089,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
       ),
@@ -57,68 +58,101 @@ class _AppBarCustomWidgetState extends State<AppBarCustomWidget> {
               borderRadius: BorderRadius.circular(8.0),
               child: Image.asset(
                 'assets/images/vnimc_1.png',
-                width: 150.0,
-                height: 200.0,
+                width: MediaQuery.sizeOf(context).width * 0.07,
+                height: MediaQuery.sizeOf(context).height * 0.04,
                 fit: BoxFit.cover,
               ),
             ),
-            Container(
-              width: 420.0,
-              height: MediaQuery.sizeOf(context).height * 0.06,
-              decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).primaryBackground,
-                borderRadius: BorderRadius.circular(15.0),
-                border: Border.all(
-                  color: FlutterFlowTheme.of(context).borderColor,
-                ),
-              ),
+            Align(
+              alignment: const AlignmentDirectional(0.0, 0.0),
               child: Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SizedBox(
-                      width: MediaQuery.sizeOf(context).width * 0.24,
-                      child: TextFormField(
-                        controller: _model.textController,
-                        focusNode: _model.textFieldFocusNode,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          labelStyle: FlutterFlowTheme.of(context).labelMedium,
-                          hintText: 'Search Me..',
-                          hintStyle: FlutterFlowTheme.of(context).labelMedium,
-                          enabledBorder: InputBorder.none,
-                          focusedBorder: InputBorder.none,
-                          errorBorder: InputBorder.none,
-                          focusedErrorBorder: InputBorder.none,
-                          contentPadding: const EdgeInsetsDirectional.fromSTEB(
-                              10.0, 10.0, 10.0, 10.0),
-                          prefixIcon: const Icon(
-                            Icons.search_sharp,
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                      child: SizedBox(
+                        width: MediaQuery.sizeOf(context).width * 0.32,
+                        child: TextFormField(
+                          controller: _model.textController,
+                          focusNode: _model.textFieldFocusNode,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            labelStyle:
+                                FlutterFlowTheme.of(context).labelMedium,
+                            hintText: 'Search Me..',
+                            hintStyle: FlutterFlowTheme.of(context).labelMedium,
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).alternate,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).primary,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).error,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).error,
+                                width: 2.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
                           ),
+                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          textAlign: TextAlign.start,
+                          maxLines: null,
+                          validator: _model.textControllerValidator
+                              .asValidator(context),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyMedium,
-                        validator:
-                            _model.textControllerValidator.asValidator(context),
                       ),
                     ),
-                    FlutterFlowIconButton(
-                      borderColor: FlutterFlowTheme.of(context).primary,
-                      borderRadius: 7.0,
-                      borderWidth: 1.0,
-                      buttonSize: MediaQuery.sizeOf(context).width * 0.03,
-                      fillColor: FlutterFlowTheme.of(context).primary,
-                      icon: Icon(
-                        Icons.search_sharp,
-                        color: FlutterFlowTheme.of(context).primaryBackground,
-                        size: 24.0,
-                      ),
+                    FFButtonWidget(
                       onPressed: () {
-                        print('IconButton pressed ...');
+                        print('Button pressed ...');
                       },
+                      text: 'Search',
+                      options: FFButtonOptions(
+                        height: MediaQuery.sizeOf(context).height * 0.05,
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        iconPadding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).primary,
+                        textStyle: FlutterFlowTheme.of(context)
+                            .titleSmall
+                            .override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).titleSmallFamily,
+                              color: Colors.white,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context)
+                                      .titleSmallFamily),
+                            ),
+                        elevation: 3.0,
+                        borderSide: const BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
                     ),
-                  ],
+                  ].divide(const SizedBox(width: 20.0)),
                 ),
               ),
             ),
@@ -148,8 +182,8 @@ class _AppBarCustomWidgetState extends State<AppBarCustomWidget> {
                   size: 30.0,
                 ),
                 Container(
-                  width: MediaQuery.sizeOf(context).width * 0.04,
-                  height: MediaQuery.sizeOf(context).width * 0.04,
+                  width: MediaQuery.sizeOf(context).width * 0.03,
+                  height: MediaQuery.sizeOf(context).width * 0.03,
                   clipBehavior: Clip.antiAlias,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,

@@ -1,1 +1,1 @@
-export 'chart_widget.dart' show ChartWidget;
+export 'line_chart.dart' show LineChart;
