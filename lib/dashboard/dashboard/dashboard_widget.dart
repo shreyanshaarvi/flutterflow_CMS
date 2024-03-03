@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/utility/app_bar_custom/app_bar_custom_widget.dart';
 import '/utility/side_bar_menu/side_bar_menu_widget.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'dashboard_model.dart';
 export 'dashboard_model.dart';
@@ -37,7 +38,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final chartPieChartColorsList2 = [
+    final chartPieChartColorsList1 = [
       const Color(0xFF8F46E9),
       const Color(0xFF6F28CB),
       const Color(0xFF2536A4),
@@ -123,91 +124,23 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                               ],
                                             ),
                                             Expanded(
-                                              child: Padding(
-                                                padding: const EdgeInsets.all(10.0),
-                                                child: SizedBox(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                              .width *
-                                                          1.0,
+                                              child: SizedBox(
+                                                width: double.infinity,
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        1.0,
+                                                child:
+                                                    custom_widgets.ChartWidget(
+                                                  width: double.infinity,
                                                   height:
                                                       MediaQuery.sizeOf(context)
                                                               .height *
                                                           1.0,
-                                                  child: FlutterFlowLineChart(
-                                                    data: [
-                                                      FFLineChartData(
-                                                        xData: FFAppConstants
-                                                            .monthName,
-                                                        yData: FFAppConstants
-                                                                .Revenue
-                                                            .map((e) =>
-                                                                formatNumber(
-                                                                  e,
-                                                                  formatType:
-                                                                      FormatType
-                                                                          .custom,
-                                                                  currency: '₹',
-                                                                  format: '',
-                                                                  locale: '',
-                                                                )).toList(),
-                                                        settings:
-                                                            LineChartBarData(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primary,
-                                                          barWidth: 2.0,
-                                                          isCurved: true,
-                                                          dotData: FlDotData(
-                                                              show: false),
-                                                          belowBarData:
-                                                              BarAreaData(
-                                                            show: true,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .accent1,
-                                                          ),
-                                                        ),
-                                                      )
-                                                    ],
-                                                    chartStylingInfo:
-                                                        ChartStylingInfo(
-                                                      enableTooltip: true,
-                                                      tooltipBackgroundColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      backgroundColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryBackground,
-                                                      showBorder: false,
-                                                    ),
-                                                    axisBounds: const AxisBounds(
-                                                      minY: 50.0,
-                                                      maxY: 100.0,
-                                                    ),
-                                                    xAxisLabelInfo:
-                                                        const AxisLabelInfo(
-                                                      title: 'Month Name',
-                                                      titleTextStyle: TextStyle(
-                                                        fontSize: 14.0,
-                                                      ),
-                                                    ),
-                                                    yAxisLabelInfo:
-                                                        const AxisLabelInfo(
-                                                      title:
-                                                          'Revenue In Thousands',
-                                                      titleTextStyle: TextStyle(
-                                                        fontSize: 14.0,
-                                                      ),
-                                                      showLabels: true,
-                                                      labelTextStyle: TextStyle(
-                                                        fontSize: 12.0,
-                                                      ),
-                                                      labelInterval: 20.0,
-                                                    ),
-                                                  ),
+                                                  month:
+                                                      FFAppConstants.monthName,
+                                                  revenue:
+                                                      FFAppConstants.Revenue,
                                                 ),
                                               ),
                                             ),
@@ -266,7 +199,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                   e.toString())
                                                           .toList(),
                                                       colors:
-                                                          chartPieChartColorsList2,
+                                                          chartPieChartColorsList1,
                                                       radius: [74.0],
                                                     ),
                                                     donutHoleRadius: 0.0,
