@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/utility/app_bar_custom/app_bar_custom_widget.dart';
 import '/utility/side_bar_menu/side_bar_menu_widget.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'dashboard_model.dart';
 export 'dashboard_model.dart';
@@ -123,6 +124,32 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                   ),
                                                 ),
                                               ],
+                                            ),
+                                            Expanded(
+                                              child: SizedBox(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        1.0,
+                                                child: custom_widgets.LineChart(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          1.0,
+                                                  height:
+                                                      MediaQuery.sizeOf(context)
+                                                              .height *
+                                                          1.0,
+                                                  month:
+                                                      FFAppConstants.monthName,
+                                                  revenue:
+                                                      FFAppConstants.Revenue,
+                                                ),
+                                              ),
                                             ),
                                           ].divide(const SizedBox(height: 20.0)),
                                         ),
